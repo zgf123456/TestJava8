@@ -1,4 +1,4 @@
-package com.zgf.java8.defaultable;
+package com.zgf.java8.newInterfaceMethod.defaultable;
 
 /**
  * Created by zgf on 17/6/8.
