@@ -1,6 +1,8 @@
 package com.zgf.java8.methodReference.model;
 
 import java.time.LocalDate;
+import java.util.Collection;
+import java.util.function.Supplier;
 
 /**
  * Created by zgf on 17/6/8.
@@ -39,5 +41,16 @@ public class Person {
 
     public int compare(Person a, Person b) {
         return a.birthday.compareTo(b.birthday);
+    }
+
+
+    // 构造方法引用测试用，关注supplier的使用
+    public static <T, SOURCE extends Collection<T>, DEST extends Collection<T>> DEST transferElements(SOURCE sourceColletions, Supplier<DEST> colltionFactory) {
+        DEST result = colltionFactory.get();
+//        for (T t : sourceColletions) {
+//            result.add(t);
+//        }
+        sourceColletions.forEach(result::add);
+        return result;
     }
 }

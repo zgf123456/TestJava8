@@ -32,5 +32,17 @@ public class TestMethod {
 
         // 使用类的普通方法引用
         Arrays.sort(persons, person::compare);
+
+
+        // =====================================
+        // 测试使用基础类型对象的实例方法
+        String[] stringsArray = {"Hello", "World"};
+
+        //使用lambda表达式和类型对象的实例方法
+        Arrays.sort(stringsArray, (s1, s2) -> s1.compareToIgnoreCase(s2));
+
+        //使用方法引用
+        //引用的是类型对象的实例方法, 为何java类型的方法引用不需要实例化???
+        Arrays.sort(stringsArray, String::compareToIgnoreCase);
     }
 }
